@@ -1044,6 +1044,8 @@ local Teleport = Window:NewTab("Teleport")
 local Settings = Window:NewTab("Settings")
 local SettingsSection = Settings:NewSection("Settings")
 
+SettingsSection:NewKeybind("ToggleGui", "Set you toggle gui key", Enum.KeyCode.F, function()	Library:ToggleUI()end)
+
 SettingsSection:NewButton("FPS", "ButtonInfo", function()
     local decalsyeeted = true -- Leaving this on makes games look shitty but the fps goes up by at least 20.
 local g = game
