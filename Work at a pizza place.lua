@@ -1071,3 +1071,27 @@ v.Lifetime = NumberRange.new(0)
  end
 end
 end)
+
+local CreditsTab = Window:NewTab("Credits")
+local CreditsSection = CreditsTab:NewSection("Credits")
+CreditsSection:NewLabel("Made by Toipik#4001")
+
+CreditsSection:NewButton("Join Discord", "Joins the discord server.", function()
+    local http = game:GetService('HttpService') 
+    local req = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or getgenv().request or request
+	if req then
+		req({
+			Url = 'http://127.0.0.1:6463/rpc?v=1',
+			Method = 'POST',
+			Headers = {
+				['Content-Type'] = 'application/json',
+				Origin = 'https://discord.com'
+			},
+			Body = http:JSONEncode({
+				cmd = 'INVITE_BROWSER',
+				nonce = http:GenerateGUID(false),
+				args = {code = 'mfAjWaz2j9'}
+			})
+		})
+	end
+end)
